@@ -1,0 +1,94 @@
+﻿@model RiseOfVikings.Models.ForumViewModel
+@{
+    Layout = "~/Views/Shared/HordeLayout.cshtml";
+}
+<div class="horde-logo"></div>
+<div class="jumbotron" style="z-index: 99;">
+    <h1><span class="headline">Forum tråd</span></h1> <hr />
+    <p class="text">@Model.SelectedThread.headline</p>
+</div>
+
+<div class="jumbotron container">
+    <div class="col-md-12 container subforum-div" style="border-style: solid; border-color: white; border-width: 1px">
+        <div class="col-md-3" style="border-right-color: white; border-right-style: solid; border-right-width: 1px">
+            <a href="@Url.Action("Details", "User", new {id = @Model.SelectedThread.user_id})" style="font-size: 1.2em" class="horde-link">@Model.SelectedThread.User.username</a>
+            <p class="forum-user">Btag: @Model.SelectedThread.User.battletag</p>
+            <p class="forum-user">Rank: @Model.ThreadUser.Role.role_name</p>
+            <p class="forum-user">Medlem siden: @Model.ThreadUser.member_since</p>
+        </div>
+        <div class="col-md-9">
+            <p><pre class="thread-body-text">@Model.SelectedThread.body</pre></p><hr />
+            <p style="color: grey; font-size: 0.8em">Oprettet: @Model.SelectedThread.created_date</p>
+            @if (Session["User"] != null && Model.LoggedInUser != null)
+            {
+                if (Model.LoggedInUser.role_id == 1 || Model.LoggedInUser.role_id == 2)
+                {
+                    <a href="@Url.Action("DeleteThread", "Horde", new { id = Model.SelectedThread.id, subforumId = @Model.SelectedSubforum.id })" style="font-size: 0.5em">Slet tråd</a>
+                    if (!Model.SelectedThread.sticky)
+                    {
+                        <a href="@Url.Action("SetSticky", "Horde", new { threadId = Model.SelectedThread.id, subforum = @Model.SelectedSubforum.id })" style="font-size: 0.5em;">Sæt som sticky</a>
+                    }
+                    if (!Model.SelectedThread.read_only)
+                    {
+                        <a href="@Url.Action("SetReadOnly", "Horde", new { threadId = Model.SelectedThread.id, subforum = @Model.SelectedSubforum.id })" style="font-size: 0.5em;">Sæt som read only</a>
+                    }
+                }
+            }
+        </div>
+
+    </div><br />
+    @foreach (var comment in @Model.Comments)
+    {
+        <div class="col-md-12 container subforum-div" style="border-style: solid; border-color: white; border-width: 1px">
+            <div class="col-md-3" style="border-right-color: white; border-right-style: solid; border-right-width: 1px">
+                <a href="@Url.Action("Details", "User", new {id = @comment.user_id})" style="font-size: 1.2em" class="horde-link">@comment.User.username</a>
+                <p class="forum-user">Btag: @comment.User.battletag</p>
+                <p class="forum-user">Rank: @comment.User.Role.role_name</p>
+                <p class="forum-user">Medlem siden: @comment.User.member_since</p>
+            </div>
+            <div class="col-md-9">
+                <p><pre class="thread-body-text">@comment.body</pre></p><hr style="border-color: grey" />
+                <p style="color: grey; font-size: 0.8em">Oprettet: @comment.created_date</p>
+                @if (Session["User"] != null && Model.LoggedInUser != null)
+                {
+                    if (Model.LoggedInUser.role_id == 1 || Model.LoggedInUser.role_id == 2)
+                    {
+                        <a href="@Url.Action("RemoveWithMessageConfirm", "Horde", new { commentId = comment.id, threadId = @Model.SelectedThread.id, subforum = @Model.SelectedSubforum.id })" style="font-size: 0.5em">Fjern som upassende</a>
+                        <a href="@Url.Action("DeleteComment", "Horde", new { commentId = comment.id, threadId = @Model.SelectedThread.id, subforum = @Model.SelectedSubforum.id })" style="font-size: 0.5em">Slet</a>
+                    }
+                }
+            </div>
+        </div>
+    }<br />
+
+    @if (Session["User"] != null && !Model.SelectedThread.read_only)
+    {
+        <div class="col-md-12 container subforum-div" style="padding-top: 10px">
+            <p class="text">Kommentér</p>
+            <div class="col-md-3">
+                <p class="forum-user" style="font-size: 1.2em;">@Model.LoggedInUser.username</p>
+            </div>
+            <div class="col-md-9">
+                @if (Session["CommentError"] != null)
+                {
+                    <div class="container login-error-box">
+                        <p class="error-message">@Session["CommentError"]</p>
+                    </div>
+                }
+                <form action="@Url.Action("CreateComment", "Horde")">
+                    <textarea class="textarea-forum" name="stringComment"></textarea><br />
+                    <div class="col-md-12" style="padding-right: 0px;">
+                        <input class="btn btn-primary btn-lg horder-btn" type="submit" value="Kommentér" style="float: right; margin-bottom: 10px" />
+                    </div>
+                    <input type="hidden" name="userId" value="@Model.LoggedInUser.id" />
+                    <input type="hidden" name="threadId" value="@Model.SelectedThread.id" />
+                    <input type="hidden" name="subforumId" value="@Model.SelectedSubforum.id" />
+                </form>
+            </div>
+        </div>
+    }
+    else if (Session["User"] == null)
+    {
+        <p>For at kunne kommentére, skal du enten logge ind eller lave en bruger</p>
+    }
+</div>

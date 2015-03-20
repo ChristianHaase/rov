@@ -1,0 +1,372 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+@font-face{
+    font-family: Agency FB;
+    src: url('../fonts/Agency FB.ttf');
+    src: url('../fonts/Agency FB.otf') format('opentype');
+}
+
+@font-face{
+    font-family: Viking-Normal;
+    src: url('../fonts/Viking Normal.TTF');
+    src: url('../fonts/Viking Normal.otf') format('opentype');
+}
+
+.logo {
+    height: 250px;
+    width: 250px;
+    margin-top: 50px;
+}
+
+div.jumbotron {
+    background-color: #708090;
+    background-color: rgba(0, 0, 0, 0.6);
+    margin-top: 2.5%;
+}
+
+a.btn {
+    color: #ffffff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+
+div.col {
+    min-height: 500px;
+}
+
+h2 {
+    color: white;
+    font-family: Agency FB
+}
+
+p {
+    color: white;
+    font-family: Agency FB;
+}
+
+footer {
+    background-color: #708090;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 6px;
+}
+
+.tableCol {
+    text-align: center;
+    color: white;
+}
+
+.alliance-background{
+    background-image: url(Images/AllyBackground.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.horde-background{
+    background-image: url(Images/HordeBackground.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.col {
+    cursor: pointer;
+}
+
+.frontpage-background {
+    background-image: url(Images/background.jpg); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;}
+ 
+.alliance-logo {
+    background-image: url(Images/AllianceBanner.png);
+    background-repeat: no-repeat; 
+    float: right; 
+    z-index: 98;
+    width: 240px;
+    height: 240px;
+    margin-top: 60px
+}
+
+.horde-logo {
+    background-image: url(Images/HordeBanner.png); 
+    background-repeat: no-repeat; 
+    float: right; 
+    z-index: 98;
+    width: 240px;
+    height: 240px;
+    margin-top: 60px;
+}
+
+.headline {
+    color: white;
+    font-size: 0.9em;
+    font-family: Viking-Normal
+}
+
+.text {
+    color: white;
+    font-size: 1.3em;
+}
+
+.footer-text {
+    color: white;
+    font-size: 1em;
+}
+
+.guildrank-text {
+    color: grey;
+    font-size: 1em;
+    margin-bottom: 50px;
+}
+
+.battletag-text {
+    color: grey;
+    font-size: 0.8em
+}
+
+.horde-btn {
+    background-color: #9F342A; 
+    border-color: black;
+    font-family: Agency FB;
+}
+
+.alliance-btn {
+    background-color: #3276B1;
+    border-color: black;
+    font-family: Agency FB;
+}
+
+.subforum-div {
+    background-color: #141414;
+    background-color: rgba(50, 50, 50, 0.6);
+}
+
+.subforum-description-text {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.latest-thread {
+    font-size: 0.8em;
+}
+
+.thread-body-text {
+    font-size: 1em;
+    margin-top: 20px
+}
+
+.forum-user {
+    color: grey;
+    font-size: 0.8em;
+}
+
+.textarea-forum {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1em;
+    font-family: Agency FB;
+    resize: none;
+    height: 200px;
+    line-height: normal;
+}
+
+.textarea-forum-headline {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1em;
+    font-family: Agency FB;
+    resize: none;
+    line-height: normal;
+    height: 30px
+}
+
+.create-thread-username {
+    font-size: 1.5em;
+}
+
+.create-thread-text {
+    font-size: 2em
+}
+
+.member-div {
+    text-align: center;
+}
+
+.ally-member-text {
+    color: #357ebd;
+}
+
+.horde-member-text {
+    color: red
+}
+
+.search-member-input {
+    font-family: Agency FB;
+    line-height: normal;
+    height: 45px
+}
+
+.create-user-textfields {
+    font-family: Agency FB;
+    font-size: 1em; 
+    line-height: normal;
+    height: 45px
+}
+
+.edit-box {
+    font-family: Agency FB;
+    font-size: 1em; 
+    line-height: normal;
+    height: 45px
+}
+
+.login-box {
+    font-family: Agency FB;
+    font-size: 1em; 
+    line-height: normal;
+    height: 45px;
+    width: 70%
+}
+
+.news-div {
+    background-color: #141414;
+    background-color: rgba(50, 50, 50, 0.6);
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+}
+
+create-user-textfields{
+    font-family: Agency FB;
+}
+
+a {
+    font-family: Agency FB
+}
+
+.sticky-post{
+    color: #FBCC87;
+}
+
+.horde-link{
+    color: #FF0000;
+}
+
+.horde-link:hover{
+    color: #A0342A
+}
+
+.horde-member-text:hover{
+    color: #A0342A
+}
+
+.horde-btn:hover{
+    background-color: #79231B;
+    border-color: black;
+}
+
+.alliance-btn:hover{
+    background-color: #1D3A65;
+    border-color: black;
+}
+
+.menu-point{
+    font-size: 18px;
+}
+
+.change-role-dropdown{
+    height: 45px;
+    font-family: Agency FB;
+    background-color: #3276B1;
+    color: white;
+    border: 1px black solid
+}
+
+.user-btn{
+    font-family: Agency FB
+}
+
+.deleted-user-left{
+    border-right: 1px solid white;
+}
+
+.deleted-text{
+    font-size: 1em;
+}
+
+.alliance-dropdown{
+    background-color: #3276B1;
+    font-family: Agency FB;
+    border: 1px solid black;
+    color: white;
+    height: 45px;
+}
+
+.horde-dropdown{
+    background-color: #9F342A;
+    font-family: Agency FB;
+    border: 1px solid black;
+    color: white;
+    height: 45px;
+}
+
+.change-about-textarea{
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1em;
+    font-family: Agency FB;
+    resize: none;
+    height: 1000px;
+    line-height: normal;
+}
+
+pre{
+    background-color: transparent;
+    border: none;
+    font-size: 1.3em;
+    font-family: Agency FB;
+    color: white;
+    word-break: normal;
+    padding: 0;
+}
+
+.news-createddate{
+    font-size: 0.8em;
+    color: grey;
+}
+
+.news-headline{
+    font-size: 1.3em;
+}
+
+.news-body{
+    font-size: 1em;
+}
+
+.error-message{
+    color: red;
+    font-size: 1em;
+}
+
+.login-error-box{
+    padding: 0;
+    padding-top: 5px;
+}

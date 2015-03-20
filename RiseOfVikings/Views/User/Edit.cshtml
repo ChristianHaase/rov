@@ -1,0 +1,23 @@
+﻿@model RiseOfVikings.Models.UserViewModel
+
+<div class="jumbotron">
+    <h1><span class="headline">Ændre bruger</span></h1><hr />
+</div>
+
+<div class="jumbotron">
+    <form action="@Url.Action("Edit", "User")" method="POST">
+        <input type="hidden" value="@Model.User.id" name="id" />
+        @if (Session["EditError"] != null)
+        {
+            <div class="container login-error-box">
+                <p class="error-message">@Session["EditError"]</p>
+            </div>
+        }
+        <p class="text">*Fornavn: </p> <input type="text" value="@Model.User.firstname" name="firstname" class="edit-box" /> <br />
+        <p class="text">*Efternavn: <br /></p> <input type="text" value="@Model.User.lastname" name="lastname" class="edit-box" /> <br />
+        <p class="text">*Brugernavn: </p> <input type="text" value="@Model.User.username" name="username" class="edit-box" /> <br />
+        <p class="text">Battletag: <br /></p> <input type="text" value="@Model.User.battletag" name="battletag" class="edit-box" /> <br />
+        <p class="text">*Email: <br /></p> <input type="text" value="@Model.User.email" name="email" class="edit-box" /> <br />
+        <input class="btn btn-primary btn-lg user-btn" type="submit" value="Ændre" />
+    </form>
+</div>

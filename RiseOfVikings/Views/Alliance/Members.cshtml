@@ -1,0 +1,33 @@
+﻿@model RiseOfVikings.Models.MemberViewModel
+@{
+    Layout = "~/Views/Shared/AllianceLayout.cshtml";
+}
+
+<div class="alliance-logo"></div>
+<div class="jumbotron" style="z-index: 99;">
+    <h1><span class="headline">Medlemmer</span></h1><hr />
+    <p class="text">
+        Her kan du se alle de medlemmer der i øjeblikket har en bruger.
+    </p>
+</div>
+<div class="jumbotron container">
+    <div class="col-md-12">
+        <form action="@Url.Action("Search", "Alliance")">
+            <p class="text">Søg efter medlem:</p>
+            <input type="text" class="search-member-input" placeholder="Indtast navn eller rank" name="searchString" />
+            <input type="submit" value="Søg" class="btn btn-primary btn-lg alliance-btn" />
+            <form action="@Url.Action("Members", "Alliance")">
+                <input type="submit" value="Vis alle" class="btn btn-primary btn-lg alliance-btn" />
+            </form>
+        </form>
+    </div><br />
+    @foreach (var user in Model.AllMembers.OrderBy(x => x.role_id).ThenBy(x => x.username))
+    {
+        <div class="col-md-3 member-div">
+            <p class="text">
+                <a href="@Url.Action("Details", "User", new {id = user.id})" class="ally-member-text">@user.username</a>
+            </p>
+            <p class="guildrank-text">@user.Role.role_name</p>
+        </div>
+    }
+</div>

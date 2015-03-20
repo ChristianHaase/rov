@@ -1,0 +1,50 @@
+﻿@model RiseOfVikings.Models.ForumViewModel
+@{
+    Layout = "~/Views/Shared/HordeLayout.cshtml";
+}
+<div class="horde-logo"></div>
+
+<div class="jumbotron">
+    <h1><span class="headline">Forum</span></h1><hr />
+    <p class="text">
+        I dette forum kan du læse om de seneste nyheder, upcoming events, og finde andre spillere til dine egne events.
+        Find spillere til dungeon runs, heroic dungeon farming, raids, achivement hunting og meget mere!
+    </p>
+</div>
+
+<div class="jumbotron container">
+    @if (Model.LoggedInUser != null && Model.LoggedInUser.role_id == 1)
+    {
+        <div class="container col-md-12">
+            <form action="@Url.Action("CreateSubforum", "Horde")">
+                <input type="submit" class="btn btn-primary btn-lg horde-btn" value="Opret subforum" style="float: right" />
+            </form>
+        </div><br />
+    }
+    <div style="border-color: white; border-style: solid; border-width: 1px" class="subforum-div">
+        <hr />
+        @foreach (var subforum in Model.AllSubforums)
+        {
+            <div class="col-md-12 container">
+                <div class="col-md-9">
+                    <a href="@Url.Action("SubforumIndex", "Horde", new { id = subforum.id })" class="horde-link">@subforum.subforum_name</a>
+                    <p class="subforum-description-text">@subforum.description</p>
+                </div>
+                <div class="col-md-3 container" style="border-left: 1px; border-left-color: white; border-left-style: solid; overflow: hidden">
+                    <p>Tråde: @subforum.Thread.Count</p>
+                    @if (subforum.Thread.Count != 0)
+                    {
+                        <a href="@Url.Action("ThreadIndex", "Horde", new { id = subforum.Thread.Last().id, subforumId = subforum.id })" class="horde-link">
+                            @if (subforum.Thread.Count != 0)
+                            {
+                                @subforum.Thread.Last().headline
+                            }
+                        </a>
+                    }
+
+                </div>
+            </div>
+            <hr />
+        }
+    </div>
+</div>

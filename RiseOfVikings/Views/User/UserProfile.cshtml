@@ -1,0 +1,27 @@
+﻿@model RiseOfVikings.Models.UserViewModel
+
+<div class="jumbotron" style="margin-top: 2.5%; z-index: 99;">
+    <h1><span class="headline"><b>@Model.User.username</b></span></h1><hr />
+</div>
+
+<div class="jumbotron container">
+    <div class="col-md-12">
+        <p class="text"><b>Fornavn:</b> @Model.User.firstname</p>
+        <p class="text"><b>Efternavn:</b> @Model.User.lastname</p>
+        <p class="text"><b>Brugernavn:</b> @Model.User.username</p>
+        <p class="text"><b>Battletag:</b> @Model.User.battletag</p>
+        <p class="text"><b>Email:</b> @Model.User.email</p>
+        <p class="text"><b>Medlem siden:</b> @Model.User.member_since</p>
+
+        <form action="@Url.Action("Edit", "User")">
+            <input class="btn btn-primary btn-lg user-btn" type="submit" value="Ændre" />
+        </form>
+        @if (Model.LoggedInUser.id == Model.User.id)
+        {
+            <form action="@Url.Action("DeleteUser", "User")">
+                <input type="submit" class="btn btn-primary btn-lg user-btn" value="Slet bruger" />
+                <input type="hidden" name="userId" value="@Model.User.id" />
+            </form>
+        }
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RiseOfVikings", "RiseOfVikings\RiseOfVikings.csproj", "{9DC8C900-9FB6-4382-B84A-AF5B7F844982}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBConnection", "DBConnection\DBConnection.csproj", "{506337B0-9F57-4633-BF03-A9F34ADB7893}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DC8C900-9FB6-4382-B84A-AF5B7F844982}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DC8C900-9FB6-4382-B84A-AF5B7F844982}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DC8C900-9FB6-4382-B84A-AF5B7F844982}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DC8C900-9FB6-4382-B84A-AF5B7F844982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{506337B0-9F57-4633-BF03-A9F34ADB7893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{506337B0-9F57-4633-BF03-A9F34ADB7893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{506337B0-9F57-4633-BF03-A9F34ADB7893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{506337B0-9F57-4633-BF03-A9F34ADB7893}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,58 @@
+﻿@model RiseOfVikings.Models.ForumViewModel
+@{
+    Layout = "~/Views/Shared/AllianceLayout.cshtml";
+}
+
+<div class="alliance-logo"></div>
+
+<div class="jumbotron" style="margin-top: 2.5%; z-index: 99;">
+    <h1><span class="headline"><b>Rise of Vikings</b></span>></h1><hr />
+    <p class="text">Rise of Vikings Alliance er en dansk guild der befinder sig på Burning Steppes</p>
+    <form action="@Url.Action("About", "Alliance")">
+        <input type="submit" value="Lær mere! &raquo;" class="btn btn-primary btn-lg alliance-btn" />
+    </form>
+</div>
+
+<div class="jumbotron container">
+    <div class="col-md-12 container">
+        <h2>Nyheder</h2><hr />
+        @if (Model.News.Count != 0)
+        {
+            if (Model.News.Count == 3)
+            {
+                for (int i = 0; i <= 2; i++)
+                {
+                    <div class="container col-md-12 jumbotron">
+                        <a href="@Url.Action("ThreadIndex", "Alliance", new {id = Model.News[i].id, subforumId = Model.News[i].subforum_id })" class="news-headline">@Model.News[i].headline</a>
+                        <p class="news-createddate">@Model.News[i].created_date</p><hr />
+                        <p><pre class="news-body">@Model.News[i].body</pre></p>
+                    </div><hr />
+                }
+            }
+            else if (Model.News.Count == 2)
+            {
+                for (int i = 0; i <= 1; i++)
+                {
+                    <div class="container col-md-12 jumbotron">
+                        <a href="@Url.Action("ThreadIndex", "Alliance", new { id = Model.News[i].id, subforumId = Model.News[i].subforum_id })" class="news-headline">@Model.News[i].headline</a>
+                        <p class="news-createddate">@Model.News[i].created_date</p><hr />
+                        <p><pre class="news-body">@Model.News[i].body</pre></p>
+                    </div> <hr />
+                }
+            }
+            else if (Model.News.Count == 1)
+            {
+                <div class="container col-md-12 jumbotron">
+                    <a href="@Url.Action("ThreadIndex", "Alliance", new { id = Model.News[0].id, subforumId = Model.News[0].subforum_id })" class="news-headline">@Model.News[0].headline</a>
+                    <p class="news-createddate">@Model.News[0].created_date</p><hr />
+                    <p><pre class="news-body">@Model.News[0].body</pre></p>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Ingen nyheder</p>
+        }
+    </div>
+</div>
+

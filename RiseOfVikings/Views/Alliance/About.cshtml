@@ -1,0 +1,17 @@
+﻿@model RiseOfVikings.Models.UserViewModel
+@{
+    Layout = "~/Views/Shared/AllianceLayout.cshtml";
+}
+<div class="alliance-logo"></div>
+<div class="jumbotron" style="z-index: 99;">
+    <h1><span class="headline">Om Rise of Vikings Alliance</span></h1> <hr />
+    <pre>@Model.About.about1</pre><br />
+    <p class="text">Besøg os på <a href="http://eu.battle.net/wow/en/guild/burning-steppes/Rise_of_Vikings/" target="_blank">Battle.net!</a></p>
+    <br />
+    @if (Session["User"] != null && Model.LoggedInUser.role_id == 1)
+    {
+        <form action="@Url.Action("ChangeAbout", "Alliance")">
+            <input type="submit" class="btn btn-primary btn-lg alliance-btn" value="Ændre" />
+        </form>
+    }
+</div>

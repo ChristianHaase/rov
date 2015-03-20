@@ -1,0 +1,29 @@
+﻿<div class="col-md-12 jumbotron container">
+    <div class="col-md-6 container">
+        <form action="@Url.Action("Login", "User")" method="POST">
+            @if (Session["LoginErrorMessage"] != null)
+            {
+                <p class="text">Brugernavn: </p><input type="text" name="username" class="login-box" /><br />
+                <p class="text">Password: </p><input type="password" name="password" class="login-box" /><br />
+                <div class="container login-error-box">
+                    <p class="error-message">@Session["LoginErrorMessage"]</p>
+                </div>
+                <input class="btn btn-primary btn-lg user-btn" type="submit" value="Log ind" />
+            }
+            else
+            {
+                <p class="text">Brugernavn: </p><input type="text" name="username" class="login-box" /><br />
+                <p class="text">Password: </p><input type="password" name="password" class="login-box" /><br /><br />
+                <input class="btn btn-primary btn-lg user-btn" type="submit" value="Log ind" />
+            }
+
+        </form>
+    </div>
+    <div class="col-md-6 container" style="text-align: center">
+        <br />
+        <p class="text">
+            Du skal være logget ind for at kunne skrive i forummet.
+            Hvis du ikke har en bruger kan du trykke på knappen "Opret bruger" i menuen.
+        </p>
+    </div>
+</div>

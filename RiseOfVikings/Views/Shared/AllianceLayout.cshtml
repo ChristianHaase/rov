@@ -1,0 +1,67 @@
+﻿@using System.Activities.Expressions
+@using DBConnection
+<!DOCTYPE html>
+@Scripts.Render("~/bundles/jquery")
+
+<html>
+<head>
+    <link href='http://fonts.googleapis.com/css?family=Jura' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rise of Vikings</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="alliance-background">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Forside", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="menu-point">@Html.ActionLink("Hjem", "Index", "Alliance")</li>
+                    <li class="menu-point">@Html.ActionLink("Om", "About", "Alliance")</li>
+                    <li class="menu-point">@Html.ActionLink("Forum", "Forum", "Alliance")</li>
+                    <li class="menu-point">@Html.ActionLink("Medlemmer", "Members", "Alliance")</li>
+                    <li class="menu-point">@Html.ActionLink("Stream", "Streamers", "Alliance")</li>
+                    <li class="menu-point">@Html.ActionLink("Kontakt", "Contact", "Alliance")</li>
+
+                    @if (Session["User"] != null && Convert.ToInt32(Session["Role"]) == 1 || Convert.ToInt32(Session["Role"]) == 2)
+                    {
+                        <li class="menu-point">@Html.ActionLink("Slettede brugere", "DeletedUsers", "Alliance")</li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["User"] != null)
+                    {
+                        <li class="menu-point"><a href="@Url.Action("UserProfile", "User")">Logget ind som: @Session["Username"]</a></li>
+                        <li class="menu-point"><a href="@Url.Action("Logout", "User")">Log ud</a></li>
+                    }
+                    else
+                    {
+                        <li class="menu-point"><a href="@Url.Action("Login", "User")">Log ind</a></li>
+                        <li class="menu-point"><a href="@Url.Action("Create", "User")">Opret</a></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <p id="footerText">Rise of Vikings - @DateTime.Now.Year</p>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

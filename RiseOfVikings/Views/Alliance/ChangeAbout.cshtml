@@ -1,0 +1,13 @@
+﻿@model RiseOfVikings.Models.UserViewModel
+@{
+    Layout = "~/Views/Shared/AllianceLayout.cshtml";
+}
+<div class="alliance-logo"></div>
+<div class="jumbotron" style="z-index: 99;">
+    <h1><span class="headline">Om Rise of Vikings Alliance</span></h1> <hr />
+    <form action="@Url.Action("ChangeAboutConfirmed", "Alliance")">
+        <textarea class="change-about-textarea" name="about">@Model.About.about1</textarea>
+        <input type="submit" class="btn btn-primary btn-lg alliance-btn" value="Gem" />
+        <input type="hidden" name="id" value="1" />
+    </form>
+</div>

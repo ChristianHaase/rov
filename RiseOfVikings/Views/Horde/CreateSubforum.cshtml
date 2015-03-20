@@ -1,0 +1,35 @@
+﻿@model RiseOfVikings.Models.ForumViewModel
+@{
+    Layout = "~/Views/Shared/HordeLayout.cshtml";
+}
+
+<div class="horde-logo"></div>
+<div class="jumbotron">
+    <h1><span class="headline">Opret subforum</span></h1> <hr />
+    <p class="text">Udfyld de nødvendige informationer og opret et nyt subforum</p>
+</div>
+
+<div class="jumbotron container">
+    @if (Session["CreateSubforumError"] != null)
+    {
+        <div class="container login-error-box">
+            <p class="error-message">@Session["CreateSubforumError"]</p>
+        </div>
+    }
+    <form action="@Url.Action("CreateSubforumConfirmed", "Horde")">
+        <div class="col-med-12 container">
+            <p class="text">Subforum navn:</p>
+            <textarea class="textarea-forum-headline" placeholder="Navnet på subforummet" name="subforum_name"></textarea>
+            <p class="text">Subforum beskrivelse:</p>
+            <textarea class="textarea-forum" placeholder="Beskrivelse af dette subforum" name="description"></textarea>
+        </div>
+        <div class="container">
+            <p class="text">Forum:</p>
+            <select name="forum" class="horde-dropdown">
+                <option value="1">Specifikt for Horde</option>
+                <option value="2">Begge</option>
+            </select>
+            <input type="submit" class="btn btn-primary btn-lg horde-btn" value="Opret subforum" />
+        </div>
+    </form>
+</div>

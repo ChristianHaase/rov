@@ -1,0 +1,28 @@
+﻿@model RiseOfVikings.Models.ForumViewModel
+@{
+    Layout = "~/Views/Shared/AllianceLayout.cshtml";
+}
+<div class="alliance-logo"></div>
+
+<div class="jumbotron">
+    <h1><span class="headline">@Model.SelectedSubforum.subforum_name</span></h1> <hr />
+    <p class="text">@Model.SelectedSubforum.description</p>
+</div>
+
+<div class="jumbotron container">
+    <div class="col-md-3">
+        <p class="create-thread-text">Opret tråd</p>
+        <p class="create-thread-username">@Model.LoggedInUser.username</p>
+    </div>
+    <div class="col-md-9">
+        <form action="@Url.Action("CreateThreadconfirmed", "Alliance")">
+            <p>Overskrift</p>
+            <textarea class="textarea-forum-headline" name="headline"></textarea>
+            <p>Indhold</p>
+            <textarea class="textarea-forum" name="body"></textarea>
+            <input class="btn btn-primary btn-lg alliance-btn" type="submit" value="Opret tråd" style="float: right" />
+            <input type="hidden" name="user_id" value="@Model.LoggedInUser.id" />
+            <input type="hidden" name="subforum_id" value="@Model.SelectedSubforum.id" />
+        </form>
+    </div>
+</div>

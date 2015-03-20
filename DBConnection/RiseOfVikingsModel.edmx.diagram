@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="37e5e6633cb44116b530c8b872ba3621" Name="Diagram1">
+        <EntityTypeShape EntityType="RiseOfVikingsModel.About" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RiseOfVikingsModel.Comment" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RiseOfVikingsModel.DeletedUsers" Width="1.5" PointX="2.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RiseOfVikingsModel.Forum" Width="1.5" PointX="3.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RiseOfVikingsModel.Role" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RiseOfVikingsModel.Subforum" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RiseOfVikingsModel.Thread" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RiseOfVikingsModel.User" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <AssociationConnector Association="RiseOfVikingsModel.FK_Comment_Tread" ManuallyRouted="false" />
+        <AssociationConnector Association="RiseOfVikingsModel.FK_Comment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="RiseOfVikingsModel.FK_Subforum_Forum" ManuallyRouted="false" />
+        <AssociationConnector Association="RiseOfVikingsModel.FK_User_Role" ManuallyRouted="false" />
+        <AssociationConnector Association="RiseOfVikingsModel.FK_Thread_Subforum" ManuallyRouted="false" />
+        <AssociationConnector Association="RiseOfVikingsModel.FK_Tread_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

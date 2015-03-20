@@ -1,0 +1,36 @@
+﻿@model RiseOfVikings.Models.UserViewModel
+@{
+    Layout = "~/Views/Shared/AllianceLayout.cshtml";
+}
+<div class="alliance-logo"></div>
+<div class="jumbotron">
+    <h1><span class="headline">Slettede brugere</span></h1> <hr />
+    <p class="text">
+        Dette er kun en administrator og officér funktion. Her kan i se de slettede brugere og på hvilket grundlag de har valgt at slette deres bruger.
+        I kan også se hvilken administrator der har slettet en bruger, hvis der er nogen.
+    </p>
+</div>
+
+<div class="jumbotron container">
+    @foreach (var deletedUser in Model.DeletedUsers)
+    {
+        <div class="container deleted-user-box">
+            <div class="container deleted-user-left col-md-4">
+                <p class="text deleted-text">Fornavn: @deletedUser.firstname</p>
+                <p class="text deleted-text">Efternavn: @deletedUser.lastname</p>
+                <p class="text deleted-text">Brugernavn: @deletedUser.username</p>
+                <p class="text deleted-text">Email: @deletedUser.email</p>
+                <p class="text deleted-text">Dato for slettelse: @deletedUser.deleted_date</p>
+                @if (deletedUser.admin != null)
+                {
+                    <p class="text deleted-text">Slettet af admin: @deletedUser.admin</p>
+                }
+            </div>
+            <div class="container deleted-user-right col-md-8">
+                <p class="text">Grundlag</p><hr />
+                <p class="text deleted-text">@deletedUser.reason</p>
+            </div>
+        </div>
+        <hr />
+    }
+</div>

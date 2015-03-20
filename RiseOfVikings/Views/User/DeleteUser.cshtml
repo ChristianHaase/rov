@@ -1,0 +1,14 @@
+﻿@model RiseOfVikings.Models.UserViewModel
+<div class="jumbotron container col-md-12">
+    <p class="text">Vi er kede af at du har valgt at forlade Rise of Vikings.</p><br />
+    <p class="text">Hvis du har både tid og lyst, er vi meget interesseret i at vide hvorfor du har valgt at forlade os.</p>
+    <form action="@Url.Action("DeleteUserConfirmed", "User")">
+        <textarea class="textarea-forum" name="message" placeholder="Udfyld venligst hvorfor du har valgt at forlae os"></textarea>
+        <input type="submit" class="btn btn-primary btn-lg user-btn" value="Gem" />
+        <input type="hidden" value="@Model.User.id" name="userId" />
+        @if (Model.LoggedInUser.role_id == 1)
+        {
+            <input type="hidden" value="@Model.LoggedInUser.id" name="adminId" />
+        }
+    </form>
+</div>

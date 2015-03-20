@@ -1,0 +1,13 @@
+﻿@model RiseOfVikings.Models.UserViewModel
+@{
+    Layout = "~/Views/Shared/HordeLayout.cshtml";
+}
+<div class="horde-logo"></div>
+<div class="jumbotron" style="z-index: 99;">
+    <h1><span class="headline">Om Rise of Vikings Horde</span></h1> <hr />
+    <form action="@Url.Action("ChangeAboutConfirmed", "Horde")">
+        <textarea class="change-about-textarea" name="about">@Model.About.about1</textarea>
+        <input type="submit" class="btn btn-primary btn-lg horde-btn" value="Gem" />
+        <input type="hidden" name="id" value="2" />
+    </form>
+</div>
