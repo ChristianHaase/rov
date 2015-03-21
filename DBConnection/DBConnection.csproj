@@ -94,6 +94,9 @@
     <Compile Include="User.cs">
       <DependentUpon>RiseOfVikingsModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Videos.cs">
+      <DependentUpon>RiseOfVikingsModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

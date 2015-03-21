@@ -33,5 +33,6 @@ namespace DBConnection
         public DbSet<Subforum> Subforum { get; set; }
         public DbSet<Thread> Thread { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<Videos> Videos { get; set; }
     }
 }

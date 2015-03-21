@@ -19,6 +19,7 @@
         <AssociationConnector Association="RiseOfVikingsModel.FK_User_Role" ManuallyRouted="false" />
         <AssociationConnector Association="RiseOfVikingsModel.FK_Thread_Subforum" ManuallyRouted="false" />
         <AssociationConnector Association="RiseOfVikingsModel.FK_Tread_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="RiseOfVikingsModel.Videos" Width="1.5" PointX="0.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
