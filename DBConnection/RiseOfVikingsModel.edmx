@@ -90,10 +90,11 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="description" Type="nvarchar(max)" Nullable="false" />
           <Property Name="link" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK_Comment_Tread">
           <End Role="Thread" Type="Self.Thread" Multiplicity="1">
@@ -426,6 +427,7 @@
           <Property Name="title" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="description" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="link" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="created_date" Type="DateTime" Precision="3" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -525,6 +527,7 @@
           <EntitySetMapping Name="Videos">
             <EntityTypeMapping TypeName="RiseOfVikingsModel.Videos">
               <MappingFragment StoreEntitySet="Videos">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
                 <ScalarProperty Name="link" ColumnName="link" />
                 <ScalarProperty Name="description" ColumnName="description" />
                 <ScalarProperty Name="title" ColumnName="title" />

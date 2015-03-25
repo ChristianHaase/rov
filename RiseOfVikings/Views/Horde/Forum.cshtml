@@ -34,7 +34,7 @@
                     <p>Tråde: @subforum.Thread.Count</p>
                     @if (subforum.Thread.Count != 0)
                     {
-                        <a href="@Url.Action("ThreadIndex", "Horde", new { id = subforum.Thread.Last().id, subforumId = subforum.id })" class="horde-link">
+                        <a href="@Url.Action("ThreadIndex", "Horde", new { id = subforum.Thread.Last().id, subforumId = subforum.id })" class="horde-link" style="font-size: 0.8em">
                             @if (subforum.Thread.Count != 0)
                             {
                                 @subforum.Thread.Last().headline

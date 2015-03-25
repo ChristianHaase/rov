@@ -11,9 +11,42 @@
 </div>
 
 <div class="jumbotron">
-    <p class="text">
-        Vi har indtil videre ikke uploadet nogle videoer!
-    </p><br />
-    <p class="text">Her er lidt til at lette dit humør! Hilsen, administratorerne!</p>
-    <iframe width="560" height="315" src="//www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    @if (Model.LoggedInUser != null)
+    {
+        if (Model.LoggedInUser.role_id == 1 || Model.LoggedInUser.rolse_id == 2)
+        {
+            <div class="container col-md-12">
+                <form action="@Url.Action("AddNewVideo", "Alliance")">
+                    <input type="submit" class="btn btn-primary btn-lg alliance-btn" value="Tilføj Video" style="float: right" />
+                </form>
+            </div><br />
+        }
+    }
+    @if (Model.AllVideos.Count == 0)
+    {
+        <p class="text">Der er desværre ingen videoer!</p>
+    }
+    else
+    {
+        foreach (var vid in Model.AllVideos)
+        {
+            <div class="col-md-12 container">
+                <p class="video-headline">@vid.title</p>
+                <p class="news-createddate">@vid.created_date
+                    @if (Model.LoggedInUser != null)
+                    {
+                        if (Model.LoggedInUser.role_id == 1 || Model.LoggedInUser.rolse_id == 2)
+                        {
+                            <a href="@Url.Action("RemoveVideo", "Alliance", new {id = vid.id })" style="font-size: 0.8em">Slet video</a>
+                        }
+                    }
+                </p>
+                <iframe width="990" height="587" src="@vid.link" frameborder="0" allowfullscreen></iframe>
+                <div class="jumbotron container">
+                    <p class="text">@vid.description</p>
+                </div>
+            </div>
+            <hr />
+        }
+    }
 </div>

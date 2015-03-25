@@ -197,7 +197,10 @@ namespace DBConnection.Repository.Impl
             }
         }
 
-
+        /// <summary>
+        /// Returns the "About" for the alliance
+        /// </summary>
+        /// <returns></returns>
         public About GetAboutAlliance()
         {
             using (var db = new RiseOfVikingsEntities())
@@ -206,6 +209,10 @@ namespace DBConnection.Repository.Impl
             }
         }
 
+        /// <summary>
+        /// Return the "About" for the horde
+        /// </summary>
+        /// <returns></returns>
         public About GetAboutHorde()
         {
             using (var db = new RiseOfVikingsEntities())
@@ -214,7 +221,11 @@ namespace DBConnection.Repository.Impl
             }
         }
 
-
+        /// <summary>
+        /// Change the about for the faction with the given id, with the given "about" string
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="about"></param>
         public void ChangeAbout(int id, string about)
         {
             using (var db = new RiseOfVikingsEntities())
@@ -222,6 +233,45 @@ namespace DBConnection.Repository.Impl
                 var obj = db.About.FirstOrDefault(x => x.id == id);
                 obj.about1 = about;
                 db.Entry(obj).State = EntityState.Modified;
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Returns all videos
+        /// </summary>
+        /// <returns></returns>
+        public List<Videos> GetAllVideos()
+        {
+            using(var db = new RiseOfVikingsEntities()){
+                return db.Videos.OrderByDescending(x => x.created_date).ToList();
+            }
+        }
+
+        /// <summary>
+        /// Adds a new video
+        /// </summary>
+        /// <param name="video"></param>
+        public void AddNewVideo(Videos video)
+        {
+            using (var db = new RiseOfVikingsEntities())
+            {
+                video.created_date = DateTime.Now;
+                db.Videos.Add(video);
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// Removes the video with the given id
+        /// </summary>
+        /// <param name="id"></param>
+        public void RemoveVideo(int id)
+        {
+            using (var db = new RiseOfVikingsEntities())
+            {
+                var vid = db.Videos.FirstOrDefault(x => x.id == id);
+                db.Videos.Remove(vid);
                 db.SaveChanges();
             }
         }

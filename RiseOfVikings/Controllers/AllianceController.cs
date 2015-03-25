@@ -40,7 +40,38 @@ namespace RiseOfVikings.Controllers
 
         public ActionResult Videos()
         {
+            var model = new VideoViewModel();
+
+            if(Session["User"] != null){
+                model.LoggedInUser = Session["User"] as User;
+                model.AllVideos = _facade.GetRepo().GetAllVideos();
+            }
+            else
+            {
+                model.AllVideos = _facade.GetRepo().GetAllVideos();
+            }
+
+            return View(model);
+        }
+
+        public ActionResult AddNewVideo()
+        {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddNewVideoConfirmed(Videos video)
+        {
+            _facade.GetRepo().AddNewVideo(video);
+
+            return RedirectToAction("Videos", "Alliance");
+        }
+
+        public ActionResult RemoveVideo( int id)
+        {
+            _facade.GetRepo().RemoveVideo(id);
+
+            return RedirectToAction("Videos", "Alliance");
         }
 
         public ActionResult Forum()

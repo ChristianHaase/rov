@@ -15,6 +15,9 @@ namespace DBConnection.Repository
         List<DeletedUsers> DeletedUsers();
         About GetAboutAlliance();
         About GetAboutHorde();
-        void ChangeAbout(int id, string about);
+        void ChangeAbout(int id, string about);        
+        List<Videos> GetAllVideos();
+        void AddNewVideo(Videos video);
+        void RemoveVideo(int id);
     }
 }

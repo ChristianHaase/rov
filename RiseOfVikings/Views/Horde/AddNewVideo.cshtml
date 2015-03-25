@@ -1,0 +1,23 @@
+﻿@{
+    Layout = "~/Views/Shared/HordeLayout.cshtml";
+}
+<div class="horde-logo"></div>
+
+<div class="jumbotron">
+    <h1><span class="headline">Tilføj ny Video</span></h1><hr />
+    <p class="text">
+        Udfyld de nødvendige informationer for at oprette en ny video
+    </p>
+</div>
+
+<div class="container jumbotron">
+    <form action="@Url.Action("AddNewVideoConfirmed", "Horde")" method="post">
+        <p class="text">Titel: <br /><input type="text" name="title" class="create-user-textfields" /> <br /></p>
+        <p class="text">Beskrivelse: <br /></p>
+        <textarea class="textarea-forum" name="description"></textarea>
+        <p class="text">Link: <br /><input type="text" name="link" class="create-user-textfields" /> <br /></p>
+        <input class="btn btn-primary btn-lg alliance-btn" type="submit" value="Opret" />
+    </form>
+</div>
+
+

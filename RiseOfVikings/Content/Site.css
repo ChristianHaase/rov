@@ -227,7 +227,8 @@ footer {
     font-family: Agency FB;
     font-size: 1em; 
     line-height: normal;
-    height: 45px
+    height: 45px;
+    width: 100%
 }
 
 .edit-box {
@@ -369,4 +370,9 @@ pre{
 .login-error-box{
     padding: 0;
     padding-top: 5px;
+}
+
+.video-headline {
+    color: white;
+    font-size: 2.5em;
 }
