@@ -15,7 +15,7 @@
         <p class="create-thread-username">@Model.LoggedInUser.username</p>
     </div>
     <div class="col-md-9">
-        <form action="@Url.Action("CreateThreadconfirmed", "Horde")">
+        <form action="@Url.Action("CreateThreadconfirmed", "Horde")" method="post">
             <p>Overskrift</p>
             <textarea class="textarea-forum-headline" name="headline"></textarea>
             <p>Indhold</p>

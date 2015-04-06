@@ -199,6 +199,7 @@ namespace RiseOfVikings.Controllers
             return View(model);
         }
 
+        [HttpPost]
         public ActionResult CreateThreadConfirmed(Thread thread)
         {
             if (thread.body == null || thread.headline == null)
